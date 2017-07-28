@@ -1,9 +1,11 @@
 from django.shortcuts import render, reverse, redirect
 from ..users.models import User
 from django.contrib import messages
+from .models import *
 
 # Create your views here.
 def index(request):
+    
     if(not check_user_authentication(request)):
       return redirect('users:home')
 
@@ -23,4 +25,3 @@ def check_user_authentication(request):
         return False
     except:
       return False
-

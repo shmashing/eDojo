@@ -10,8 +10,8 @@ class CartManager(models.Manager):
         if self.filter(user=user, product=product):
             return False
         else:
-            self.create(user=user, product=product)
-    
+            return self.create(user=user, product=product)
+
 
 class ReviewManager(models.Manager):
     def create_review(self, data, user_id, product_id):
@@ -61,7 +61,7 @@ class StoreManager(models.Manager):
                 return self.create(name=data['name'], description=data['description'], logo=default, rating=0,
                                     user=user)
 
-    def edit_store(self, data, store_id):
+    def edit_store(self, data, store_id, default):
         errors = {} #YOU NEED TO MAKE THE VALUE OF INPUT THE STORE OBJ FIELD SO ITS NEVER EMPTY
         if not data['name']:
             errors['name'] = 'A store must have a name so the user can find you'
@@ -73,11 +73,9 @@ class StoreManager(models.Manager):
             return errors
         else:
             if data['logo']:
-                return self.filter(id=store_id).update(name=data['name'], description=data['description'], logo=data['logo'], rating=0,
-                                    user=user)
+                return self.filter(id=store_id).update(name=data['name'], description=data['description'], logo=data['logo'])
             else:
-                return self.filter(id=store_id).update(name=data['name'], description=data['description'], logo=default, rating=0,
-                                    user=user)
+                return self.filter(id=store_id).update(name=data['name'], description=data['description'], logo=default)
 
 
 class ProductManager(models.Manager):
@@ -98,7 +96,7 @@ class ProductManager(models.Manager):
             return self.create(name=data['name'], price=data['price'], description=data['description'],
                             image=data['image'], store=store)
 
-    def edit_product(self, product_id):
+    def edit_product(self, data, product_id):
         errors = {}
         if not data['name']:
             errors['name'] = 'Product must have a name'
@@ -112,7 +110,7 @@ class ProductManager(models.Manager):
             return errors
         else:
             return self.filter(id=product_id).update(name=data['name'], price=data['price'], description=data['description'],
-                            image=data['image'], store=store)
+                            image=data['image'])
 
 class ProductCategoryManager(models.Manager):
     def create_cat_pro(self, product, data):
@@ -187,5 +185,3 @@ class Following(models.Model):
     created_at= models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
     objects = FollowingManager()
-
-
