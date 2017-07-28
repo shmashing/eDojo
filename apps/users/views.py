@@ -46,7 +46,9 @@ def edit_user(request):
     if(not check_user_authentication(request)):
       return redirect('users:home')
 
-    context = {}    
+    context = {
+      'user': User.objects.get(id=request.session['user_id'])
+    }    
 
 
     return render(request, 'users/edit_account.html', context)

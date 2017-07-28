@@ -3,7 +3,7 @@
     padding: 0px;
 }
 body {
-    padding: 2em;
+    padding: 1em;
     background: #F1F4F8;
 }
 .greeting {
@@ -35,6 +35,8 @@ body {
 li:hover{
     color: black;
     background-color:#5B92E5;
+    box-shadow: 2px 2px 3px black;
+
 }
 .first_nav {
     border-right: 1px solid black;
@@ -73,10 +75,17 @@ li:hover{
 }
 .profile_img:hover {
     border: 1px solid #5B92E5;
+    box-shadow: 2px 2px 3px black;
+
 }
 .selected {
     background-color: #5B92E5;
+    box-shadow: 2px 2px 3px black;
 
+}
+.update_info {
+    margin-top: 3em;
+    margin-left: 3em;
 }
 .purple {
     color: #515B87;

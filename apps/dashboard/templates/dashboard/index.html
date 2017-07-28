@@ -7,16 +7,31 @@
   <meta name="description" content="eMarketPlace where users can buy, sell and trade products">
   {% load static %}
   <link rel="stylesheet" href="{% static 'dashboard/css/main.css'%}" media="screen" title="no title"  charset="utf-8">
+  <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script>
+    $(document).ready(function(){
+      $('.1').on("click", function(){
+        $('.1').parent().removeClass('hide')
+        $('.2').parent().addClass('hide')
+      })
+      $('.2').on("click", function(){
+        $('.2').parent().removeClass('hide')
+        $('.1').parent().addClass('hide')
+      })
+    });
+  </script>
 </head>
 <body>
   <div class='header'>
     <h1 class='greeting'><span class='purple'>e</span><span class='blue'>Dojo</span></h1>
-    <img src="{% static 'dashboard/images/default-profile.png'%}" class='profile_img'>
+    <a href="{% url 'users:editUser' %}">
+      <img src="{% static 'dashboard/images/default-profile.png'%}" class='profile_img'>
+    </a>
 
     <ul class='nav_bar'>
       <li class='selected'><a href="{% url 'dash:home' %}" class='nav_link'>Home</a></li>
-      <li><a href='' class='nav_link '>Explore</a></li>
-      <li><a href='' class='nav_link '>My Shops</a></li>
+      <li><a href="{% url 'dash:explore' %}" class='nav_link '>Explore</a></li>
+      <li><a href="{% url 'dash:myStores' %}" class='nav_link '>My Shops</a></li>
       <li><a href="{% url 'users:editUser' %}" class='nav_link '>Account</a></li>
     </ul>
     <a href="{% url 'users:logout' %}" class='sign_out'>Sign Out</a>
@@ -24,11 +39,11 @@
 
   <div id='wrapper'>
     <div class='toggle_links'>
-      <div class='toggle'>
-        <a href='' class='toggle_link'>Followed Stores</a>
+      <div class='toggle left'>
+        <a href='' class='toggle_link 1'>Followed Stores</a>
       </div>
-      <div class='toggle'>
-        <a href='' class='toggle_link'>Popular Stores</a>
+      <div class='toggle right hide'>
+        <a href='' class='toggle_link 2'>Popular Stores</a>
       </div>
     </div>
   
