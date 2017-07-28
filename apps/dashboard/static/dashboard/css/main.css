@@ -144,6 +144,14 @@ li:hover{
     text-align: center;
     display: inline-block;
 }
+.store_info {
+    margin-left: 15em;
+    margin-top: 3em;
+}
+.store_info > table {
+    padding: 1em;
+    border-spacing: 2em;
+}
 .purple {
     color: #515B87;
 }
