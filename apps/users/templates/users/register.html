@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>eDojo</title>
+  <meta name="description" content="eMarketPlace where users can buy, sell and trade products">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'users/css/main.css'%}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+  <h1 class='greeting'><span class='purple'>e</span><span class='blue'>Dojo</span></h1>
+
+
+  <div class='login_box'>
+    <form action="{% url 'users:addUser' %}" method='post'>
+    {% csrf_token %}
+      <table>
+        <tr>
+          <td><p class='info'>First Name:</p></td>
+          <td><input type='text' name='first_name' value='' class='reg_user_field'></td>
+        </tr>
+        <tr>
+          <td><p class='info'>Last Name:</p></td>
+          <td><input type='text' name='last_name' value='' class='reg_user_field'></td>
+        </tr>
+        <tr>
+          <td><p class='info'>Username:</p></td>
+          <td><input type='text' name='username' value='' class='reg_user_field'></td>
+        </tr>
+        <tr>
+          <td><p class='info'>Email:</p></td>
+          <td><input type='email' name='email' value='' class='reg_user_field' placeholder='example@email.com'></td>
+        </tr>
+        <tr>
+          <td><p class='info'>Password:</p></td>
+          <td><input type='password' name='password' value='' class='reg_user_field' placeholder='8 characters or more'></td>
+        </tr>
+
+      </table>
+      <input type='submit' value='Register' class='login_button'>
+    </form>
+  </div>
+    {% if messages %}
+    <div class='errors'>
+      {% for message in messages %}
+      <div class='msg_box'>
+          <p class='reg_message red_bord'>{{ message }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+</body>
+</html>

@@ -2,3 +2,92 @@
     margin: 0px;
     padding: 0px;
 }
+body {
+    padding: 2em;
+}
+.login_box {
+    margin-top: 6em;
+    padding: 3em;
+    margin-left: 23em;
+    background-color: #5B92E5;
+    display: inline-block;
+    width: 20em;
+    height: 20em;
+    border: 2px solid black;
+    border-radius: 4em;
+}
+.user_field {
+    width: 18em;
+    height: 2em;
+    padding: 0.5em;
+    margin-left: 5em;
+    margin-top: 3em;
+    border: 2px solid #36494E;
+    border-radius: 0.5em;
+ 
+}
+.info {
+    width: 5em;
+}
+.reg_user_field {
+    width: 18em;
+    height: 2em;
+    padding: 0.5em;
+    margin-left: 4em;
+    margin-top: 1em;
+    border: 2px solid #36494E;
+    border-radius: 0.5em;
+ 
+}
+
+.login_button {
+    position: relative;
+    top: 4em;
+    left: 18em;
+}
+.register_link {
+    position: relative;
+    color: #36494E;
+    top: 10em;
+    left: 2em;
+}
+.message_box {
+    text-align: center;
+    line-height: 0em;
+    height: 2em;
+    width: 14em;
+    margin-top: 4em;
+    margin-left: 2.5em;
+    display: inline-block;
+}
+.login_message{
+    display: inline-block;
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+.reg_message{
+    display: inline-block;
+    padding: 0.5em;
+    margin-top: 0.9em;
+}
+
+.errors {
+    display: inline-block;
+    height: 20em;
+    vertical-align: top;
+    margin-top: 8.8em;
+}
+.red_bord {
+    border: 2px solid red;
+    border-radius: 1em;
+} 
+.green_bord {
+    border: 2px solid green;
+    border-radius: 1em;
+} 
+.purple {
+    color: #515B87;
+}
+.blue {
+    color: #5B92E5;
+}

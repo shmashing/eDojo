@@ -3,11 +3,41 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>BLANK_TITLE</title>
-  <meta name="description" content="BLANK DESCRIPTION">
+  <title>eDojo</title>
+  <meta name="description" content="eMarketPlace where users can buy, sell and trade products">
   {% load static %}
   <link rel="stylesheet" href="{% static 'users/css/main.css'%}" media="screen" title="no title"  charset="utf-8">
 </head>
 <body>
+  <h1><span class='purple'>e</span><span class='blue'>Dojo</span></h1>
+  <div class='login_box'>
+    <form action="{% url 'users:login' %}" method='post'>
+    {% csrf_token %}
+      <table>
+        <tr>
+          <td><input type='text' name='username' placeholder='User Name' class='user_field'></td>
+        </tr>
+        <tr>
+          <td><input type='password' name='password' placeholder='Password' class='user_field'></td>
+        </tr>
+      </table>
+      <input type='submit' value='Log In' class='login_button'>
+      <a href="{% url 'users:register' %}" class='register_link'>Not a user? Register now!</a>
+    </form>
+    {% if messages %}
+      {% for message in messages %}
+        {% if 'registered' in message.tags %}
+           <div class='message_box green_bord'>
+              <p class='login_message'>{{ message }}</p>
+           </div>
+        {% else %}
+          <div class='message_box red_bord'>
+            <p class='login_message'>{{ message }}</p> 
+           </div> 
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+  </div>
 </body>
 </html>
