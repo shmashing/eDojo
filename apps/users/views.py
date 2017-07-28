@@ -53,6 +53,16 @@ def edit_user(request):
 
     return render(request, 'users/edit_account.html', context)
 
+def add_store(request):
+    if(not check_user_authentication(request)):
+      return redirect('users:home')
+
+    context = {
+      'user': User.objects.get(id=request.session['user_id'])
+    }
+
+    return render(request, 'users/add_store.html', context)
+
 def logout(request):
 
     request.session.flush()

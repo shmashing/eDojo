@@ -85,7 +85,23 @@ li:hover{
 }
 .update_info {
     margin-top: 3em;
-    margin-left: 3em;
+    margin-left: 6em;
+    display: inline-block;
+    padding: 0.5em;
+}
+.update_info > form > table {
+    border-spacing: 1em;
+}
+.update_pass > form > table {
+    border-spacing: 1em;
+}
+.update_pass {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3em;
+    margin-left: 6em;
+    padding: 0.5em;
+
 }
 .purple {
     color: #515B87;
