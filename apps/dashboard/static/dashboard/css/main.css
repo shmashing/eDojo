@@ -3,7 +3,7 @@
     padding: 0px;
 }
 body {
-    padding: 2em;
+    padding: 1em;
     background: #F1F4F8;
 }
 .greeting {
@@ -35,6 +35,8 @@ body {
 li:hover{
     color: black;
     background-color:#5B92E5;
+    box-shadow: 2px 2px 3px black;
+
 }
 .first_nav {
     border-right: 1px solid black;
@@ -47,9 +49,8 @@ li:hover{
     border-right: 1px solid black;
 }
 .sign_out {
-    float: right;
-    margin-top: -0.5em;
     margin-right: 1em;
+    margin-left: 10em;
     color: #36494E;
     padding: 0.5em;
     width: 5em;
@@ -60,6 +61,7 @@ li:hover{
 .sign_out:hover {
     background-color: #5B92E5;
     color: white;
+    box-shadow: 2px 2px 3px black;
 }
 .profile_img {
     margin-top: 1em;
@@ -73,6 +75,8 @@ li:hover{
 }
 .profile_img:hover {
     border: 1px solid #5B92E5;
+    box-shadow: 2px 2px 3px black;
+
 }
 .toggle_links {
     margin-left: 24em;
@@ -92,6 +96,9 @@ li:hover{
     text-align: center;
     margin-left: -.3em;
     width: 10em;
+}
+.hide {
+    background-color: #5B92E5;
 }
 .all_stores{
     padding: 1em;
@@ -119,6 +126,23 @@ li:hover{
 }
 .selected {
     background-color:#5B92E5;
+    box-shadow: 2px 2px 3px black;
+
+}
+.left {
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+.right {
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+
+}
+.centered {
+    margin-left: 30em;
+    margin-top: 5em;
+    text-align: center;
+    display: inline-block;
 }
 .purple {
     color: #515B87;

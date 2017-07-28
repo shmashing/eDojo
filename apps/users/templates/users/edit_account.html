@@ -15,8 +15,8 @@
 
     <ul class='nav_bar'>
       <li><a href="{% url 'dash:home' %}" class='nav_link '>Home</a></li>
-      <li><a href='' class='nav_link '>Explore</a></li>
-      <li><a href='' class='nav_link '>My Shops</a></li>
+      <li><a href="{% url 'dash:explore' %}"  class='nav_link '>Explore</a></li>
+      <li><a href="{% url 'dash:myStores' %}"  class='nav_link '>My Shops</a></li>
       <li class='selected'><a href="{% url 'users:editUser' %}" class='nav_link'>Account</a></li>
     </ul>
     <a href="{% url 'users:logout' %}" class='sign_out'>Sign Out</a>
@@ -25,6 +25,44 @@
   <div class='update_info'>
     <h3>Your profile info:</h3>
 
+    <form action='' method='post'>
+    {% csrf_token %}
+      <table>
+        <tr>
+          <td><p class='user_info'>First Name:</p></td>
+          <td><input type='text' name='first_name' value={{user.first_name}} class='user_info'></td>
+        </tr>
+        <tr>
+          <td><p class='user_info'>Last Name:</p></td>
+          <td><input type='text' name='last_name' value={{user.last_name}} class='user_info'></td>
+        </tr>
+        <tr>
+          <td><p class='user_info'>Email:</p></td>
+          <td><input type='text' name='email' value={{user.email}} class='user_info'></td>
+        </tr>
+        <tr>
+          <td><p class='user_info'>Address:</p></td>
+          <td><input type='text' name='address' class='user_info'></td>
+        </tr>
+        <tr>
+          <td><br/><p>Upload a profile picture:</p></td>
+        </tr>
+        <tr>
+          <td><form action="/upload" method='post' enctype='multipart/form-data'></td>
+          {% csrf_token %}
+            <td>
+                <input type='hidden' value={{user.id}} name='imgtype'>
+                <input type='file' name='imgup' required>
+            </td>
+            <td><input type='submit' value='Upload'></td>
+        </tr>
+
+        <tr>
+          <td><a href=''>Change your password</a></td>
+        </tr>  
+      </table>
+      <input type='submit' value='Update Info'>
+    </form>
   </div>
 </body>
 </html>
